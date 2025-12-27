@@ -106,13 +106,13 @@ int main() {
     arm_rfft_fast_init_f32(&fft_inst, SAMPLES);
 
     printf("\nObjective test results with DC stimulus (l2 norm dB)\n");
-    printf("(Lower values are better, -inf is ideal [6])\n");
+    printf("(Lower values are better, -inf is ideal)\n");
     printf("----------------------------------------------------------\n");
     for (size_t i = 0; i < num_filters; i++)
         run_test(&filter_registry[i], true);
 
     printf("\nTransient Signal Analysis (Perceptual Indicators)\n");
-    printf("(Sideband energy correlation with MUSHRA: r = -0.59 [8])\n");
+    printf("(Sideband energy correlation with MUSHRA: r = -0.59)\n");
     printf("----------------------------------------------------------------------------\n");
     printf("Structure  | Transient Signal Variance | Sideband energy (RMS)\n");
     printf("----------------------------------------------------------------------------\n");
