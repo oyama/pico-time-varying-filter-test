@@ -50,7 +50,6 @@ The output will display:
 All filters are normalized to `Q=6` for consistency with the paper's trials.
 
 - SVF: Uses resonance parameter R=1/2Q.
-- Ladder: Maps the resonance range (0–4.5) to a comparable Q factor.
 
 ## Reference
 
