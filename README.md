@@ -4,24 +4,23 @@ This project is a verification implementation of digital filters with time-varyi
 
 ## Intent and Background
 
-In musical applications, such as synthesizer filters modulated by LFOs or envelopes, filter parameters often change on a per-sample basis,. Depending on the filter structure, these rapid changes can lead to instability or audible artifacts known as "clicks",.
-This project implements and compares various filter structures based on the theories presented in Aaron Wishnick's paper, "Time-Varying Filters for Musical Applications". The primary focus is to evaluate the suitability of the State Variable Filter (SVF) for musical use cases within the resource-constrained environment of the RP2350,.
+In musical applications, such as synthesizer filters modulated by LFOs or envelopes, filter parameters often change on a per-sample basis,. Depending on the filter structure, these rapid changes can lead to instability or audible artifacts known as "clicks".
+This project implements and compares various filter structures based on the theories presented in Aaron Wishnick's paper, "Time-Varying Filters for Musical Applications". The primary focus is to evaluate the suitability of the State Variable Filter (SVF) for musical use cases within the resource-constrained environment of the RP2350.
 
 ## Supported Filter Structures
 
 The following five structures are implemented for comparison:
 
-- DF2 (Direct-Form II): A common structure that is prone to instability and large artifacts during rapid parameter changes,.
-- GR (Coupled Form / Gold and Rader): Known for being BIBO stable in the time-varying case, though it often receives lower subjective quality ratings in musical contexts,.
-- SVF (State Variable Filter): The proposed solution in the paper. It is time-varying stable and provides an ideal DC response,,.
-- TDF2RC (Stabilized TDF-II): A structure stabilized using Rabenstein and Czarnach’s state vector transformation. It often achieves the highest subjective quality scores,.
-- Ladder (Normalized Ladder): Mentioned in prior work. While it may have higher DC error, its transient response can "smooth out" parameter changes,.
+- DF2 (Direct-Form II): A common structure that is prone to instability and large artifacts during rapid parameter changes.
+- GR (Coupled Form / Gold and Rader): Known for being BIBO stable in the time-varying case, though it often receives lower subjective quality ratings in musical contexts.
+- SVF (State Variable Filter): The proposed solution in the paper. It is time-varying stable and provides an ideal DC response.
+- TDF2RC (Stabilized TDF-II): A structure stabilized using Rabenstein and Czarnach’s state vector transformation. It often achieves the highest subjective quality scores.
 
 ## Test Methodology
 
-Following the experimental setup described in the paper (Table 3, 4), the filters are evaluated using two primary metrics,:
+Following the experimental setup described in the paper (Table 3, 4), the filters are evaluated using two primary metrics:
 
-1. Objective Evaluation (DC Stimulus): Measures the l2 norm error (in dB) when parameters are changed instantaneously while passing a steady DC signal,. The SVF is expected to achieve an ideal result of `-inf`,.
+1. Objective Evaluation (DC Stimulus): Measures the l2 norm error (in dB) when parameters are changed instantaneously while passing a steady DC signal,. The SVF is expected to achieve an ideal result of `-inf`.
 2. Perceptual Indicators (Sideband Energy): Analyzes the "Sideband energy" produced during parameter changes. This metric is negatively correlated with subjective MUSHRA scores (r=−0.59), meaning lower values indicate fewer audible "clicks" and higher audio quality.
 
 ## Build and Execution
